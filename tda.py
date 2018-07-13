@@ -2,8 +2,8 @@ class Grafo:
   
   def __init__(self):
     self.vertices = {}
-    self.cant_v = 0
-    self.cant_e = 0
+    self.cant_v = 0 #O(1)
+    self.cant_e = 0 #O(1)
     
   def v(self):
     return self.cant
@@ -17,9 +17,13 @@ class Grafo:
   
 class Vertice:
   
-  def __init__(self, nombre, dato):
+  """ constructor del vertice
+      experimentando como distintos enfoques
+  """
+  def __init__(self, nombre, dato = None):
+    self.lista_adyacencias = {} # para las conecciones
     self.nombre = nombre
-    self.dato = dato
+    self.dato = dato #primero no dirigido (pruebas)
   
   def __str__(self):
     return str(self.nombre, self.dato)
