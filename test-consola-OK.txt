@@ -1,0 +1,64 @@
+ /ProxyOFF/Mod-Debugging/Stack/Poison/RareScript -f o server.start >
+
+#Stopped Sniffer
+#Stopped ClearBrutal-Arp
+#listen ips (Show mode OFF)
+
+> g -o Loaded BlackList.asm -t -0xhh1 -StealMorGe(2,S_static)
+> ok command
+
+> sleep Attack(https://www2.personas.santanderrio.com.ar/obp-webapp/angular/#!/login -George )
+
+>py tda.py
+┌───────────────────────────────────┐
+│                                   │
+│~~~ TEST Grafos ~~~  by @Leonel R. │
+│                                   │
+│       Facultad de Ingenieria      │
+│    Universidad de Buenos aires    │
+│                                   │
+└───────────────────────────────────┘
+
+
+
+agregar nodos  ...OK!
+conectar a-b es verdadero  ...OK!
+conectar a-a es falso  ...OK!
+conectar a-c es verdadero ...OK!
+conectar a-d es verdadero ...OK!
+conectar b-d es verdadero ...OK!
+Cantidad vertice es igual 4  ...OK!
+Cantidad de aristas es igual a 4 ...OK!
+
+a
+│
+├ b
+├ c
+├ d
+
+b
+│
+├ a
+├ d
+
+c
+│
+├ a
+
+d
+│
+├ a
+├ b
+
+borrar vertice [a]  ...OK
+
+b
+│
+├ d
+
+c
+│
+
+d
+│
+├ b
