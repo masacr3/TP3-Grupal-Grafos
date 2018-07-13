@@ -1,0 +1,55 @@
+>py tda.py
+                ┌───────────────────────────────────┐
+                │                                   │
+                │~~~ TEST Grafos ~~~  by @Leonel R. │
+                │                                   │
+                │       Facultad de Ingenieria      │
+                │    Universidad de Buenos aires    │
+                │                                   │
+                └───────────────────────────────────┘
+
+
+
+agregar nodos  ...OK!
+conectar a-b es verdadero  ...OK!
+conectar a-a es falso  ...OK!
+conectar a-c es verdadero ...OK!
+conectar a-d es verdadero ...OK!
+conectar b-d es verdadero ...OK!
+Cantidad vertice es igual 4  ...OK!
+Cantidad de aristas es igual a 4 ...OK!
+
+ a
+ │
+ ├ b
+ ├ c
+ ├ d
+
+ b
+ │
+ ├ a
+ ├ d
+
+ c
+ │
+ ├ a
+
+ d
+ │
+ ├ a
+ ├ b
+
+borrar vertice [a]  ...OK
+Cantidad vertice es igual 3  ...OK!
+Cantidad aristas es igual 1  ...OK!
+
+ b
+ │
+ ├ d
+
+ c
+ │
+
+ d
+ │
+ ├ b
