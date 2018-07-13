@@ -19,15 +19,15 @@ class Grafo:
         self.cantA = 0
 
     #retorna cantidad Vertices
-    def V(self):
+    def cantidad_vertices(self):
         return self.cantV
 
     #retorna cantidad cantidad aristas
-    def E(self):
+    def cantidad_aristas(self):
         return self.cantA
 
     #agrega vertice al grafo
-    def agregarV(self, clave, dato=None):
+    def agregar_vertice(self, clave, dato=None):
         if clave not in self.vertices:
             v = Vertice(clave ,dato)
             self.vertices[clave] = v
@@ -36,7 +36,7 @@ class Grafo:
         return False
 
     #agrega arista al grafo
-    def agregarA(self, a, b, dirigido=None ):
+    def agregar_arista(self, a, b, dirigido=None ):
         if a == b or a not in self.vertices or b not in self.vertices :
             return False
 
@@ -65,16 +65,35 @@ class Grafo:
                 print(" ├",ady)
 
     #borra vertice del grafo
-    def borrarV(self, clave):
+    def borrar_vertice(self, clave):
         if clave not in self.vertices:
             return False
 
         for k in self.vertices[clave].ady:
             del self.vertices[k].ady[clave]
+            self.cantA -= 1
 
         del self.vertices[clave]
+        self.cantV -=1
 
         return True
+
+    #posibles primitivas
+    def obtener_vertices(self):
+        return list(self.vertices)
+
+    #si el vertice a es adyacente en b
+    #para grafos no dirigidos
+    def son_adyacentes(self, a, b):
+        if a not in self.vertices and b not in self.vertices:
+            return False
+
+        if a in self.vertices[b].ady:
+            return True
+
+        return False
+
+
 
     #formalidad
     def __str__(self):
@@ -92,10 +111,10 @@ def prueba():
     g = Grafo()
 
     ok = True
-    ok = ok and True == g.agregarV("a")
-    ok = ok and True == g.agregarV("b")
-    ok = ok and True == g.agregarV("c")
-    ok = ok and True == g.agregarV("d")
+    ok = ok and True == g.agregar_vertice("a")
+    ok = ok and True == g.agregar_vertice("b")
+    ok = ok and True == g.agregar_vertice("c")
+    ok = ok and True == g.agregar_vertice("d")
     print("\t\t┌───────────────────────────────────┐")
     print("\t\t│                                   │")
     print("\t\t│~~~ TEST Grafos ~~~  by @Leonel R. │")
@@ -107,22 +126,23 @@ def prueba():
     print("\n\n")
     print("agregar nodos ","...OK!" if ok else "...ERROR")
 
-    print("conectar a-b es verdadero ", "...OK!" if g.agregarA("a","b") else "...ERROR")
-    print("conectar a-a es falso ","...OK!" if not g.agregarA("a","b") == True else "...ERROR")
-    print("conectar a-c es verdadero","...OK!" if g.agregarA("a","c") else "...ERROR")
-    print("conectar a-d es verdadero","...OK!" if g.agregarA("a","d") else "...ERROR")
-    print("conectar b-d es verdadero","...OK!" if g.agregarA("b","d") else "...ERROR")
+    print("conectar a-b es verdadero ", "...OK!" if g.agregar_arista("a","b") else "...ERROR")
+    print("conectar a-a es falso ","...OK!" if not g.agregar_arista("a","b") == True else "...ERROR")
+    print("conectar a-c es verdadero","...OK!" if g.agregar_arista("a","c") else "...ERROR")
+    print("conectar a-d es verdadero","...OK!" if g.agregar_arista("a","d") else "...ERROR")
+    print("conectar b-d es verdadero","...OK!" if g.agregar_arista("b","d") else "...ERROR")
 
-    print("Cantidad vertice es igual 4 ","...OK!" if g.V() == 4 else "...ERROR")
-    print("Cantidad de aristas es igual a 4", "...OK!" if g.E() == 4 else "...ERROR")
+    print("Cantidad vertice es igual 4 ","...OK!" if g.cantidad_vertices() == 4 else "...ERROR")
+    print("Cantidad de aristas es igual a 4", "...OK!" if g.cantidad_aristas() == 4 else "...ERROR")
 
     #el g.vertices["b"]
 
     for v in g.vertices:
         g.ver_conecciones(v)
 
-    print("\nborrar vertice [a] ", "...OK" if g.borrarV("a") else "ERROR")
-
+    print("\nborrar vertice [a] ", "...OK" if g.borrar_vertice("a") else "ERROR")
+    print("Cantidad vertice es igual 3 ","...OK!" if g.cantidad_vertices() == 3 else "...ERROR")
+    print("Cantidad aristas es igual 1 ","...OK!" if g.cantidad_aristas() == 1 else "...ERROR")
     for v in g.vertices:
         g.ver_conecciones(v)
 
