@@ -11,7 +11,7 @@ class Grafo:
   def agregar_v(self, nombre, dato):
     
     if not nombre in self.vertices:
-      v = Vertices(nombre, dato)
+      v = Vertice(nombre, dato)
       self.vertice[nombre] = v
       self.cant_v += 1
   
