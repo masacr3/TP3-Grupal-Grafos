@@ -57,12 +57,14 @@ class Grafo:
 
         return False
 
+    #muestra las conecciones de los vertices en el grafo
     def ver_conecciones(self, clave):
         if clave in self.vertices:
             print("\n",clave,"\n │")
             for ady in self.vertices[clave].ady:
                 print(" ├",ady)
 
+    #borra vertice del grafo
     def borrarV(self, clave):
         if clave not in self.vertices:
             return False
@@ -74,6 +76,7 @@ class Grafo:
 
         return True
 
+    #formalidad
     def __str__(self):
         lista = []
         #retorna clave
@@ -84,6 +87,7 @@ class Grafo:
         return str(lista)
 
 
+#La prueba de mierda
 def prueba():
     g = Grafo()
 
@@ -123,3 +127,10 @@ def prueba():
         g.ver_conecciones(v)
 
 prueba()
+
+#TOMAAAAA SON LAS 9 de la mañana y sigo programando
+#   _,,,,,,,__
+# ((* )(* )   )
+#  \  l     /           Marto Gato aprende a usar objetos
+#   \  ¬  /
+#    VVVV
